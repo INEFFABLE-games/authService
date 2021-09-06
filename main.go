@@ -1,20 +1,20 @@
 package main
 
 import (
-	"authService/config"
-	"authService/protocol"
-	"authService/repository"
-	"authService/server"
-	"authService/service"
 	"database/sql"
 	"fmt"
+	"github.com/INEFFABLE-games/authService/config"
+	"github.com/INEFFABLE-games/authService/protocol"
+	"github.com/INEFFABLE-games/authService/repository"
+	"github.com/INEFFABLE-games/authService/server"
+	"github.com/INEFFABLE-games/authService/service"
 	_ "github.com/lib/pq"
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
 	"net"
 )
 
-func main(){
+func main() {
 
 	cfg := config.NewConfig()
 
@@ -47,7 +47,7 @@ func main(){
 
 	grpcServer := grpc.NewServer()
 
-	protocol.RegisterAuthServiceServer(grpcServer,tokenHandler)
+	protocol.RegisterAuthServiceServer(grpcServer, tokenHandler)
 
 	err = grpcServer.Serve(lis)
 	if err != nil {

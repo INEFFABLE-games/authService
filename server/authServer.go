@@ -1,9 +1,9 @@
 package server
 
 import (
-	proto "authService/protocol"
-	"authService/service"
 	"context"
+	proto "github.com/INEFFABLE-games/authService/protocol"
+	"github.com/INEFFABLE-games/authService/service"
 	log "github.com/sirupsen/logrus"
 )
 
