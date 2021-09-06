@@ -1,0 +1,20 @@
+syntax = "proto2";
+
+package proto;
+
+option go_package = "./protocol";
+
+service AuthService{
+  rpc Refresh(RefreshRequest) returns (RefreshReply){};
+}
+
+// refresh
+
+message RefreshRequest{
+  required string login = 1;
+}
+
+message RefreshReply{
+  required string jwt = 1;
+  required string rt = 2;
+}
