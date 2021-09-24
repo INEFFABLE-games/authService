@@ -2,8 +2,8 @@ package service
 
 import (
 	"context"
+	"github.com/INEFFABLE-games/authService/internal/repository"
 	"github.com/INEFFABLE-games/authService/models"
-	"github.com/INEFFABLE-games/authService/repository"
 	"github.com/dgrijalva/jwt-go"
 	"time"
 )

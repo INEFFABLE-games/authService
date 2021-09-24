@@ -3,9 +3,9 @@ package server
 import (
 	"context"
 	"database/sql"
+	"github.com/INEFFABLE-games/authService/internal/repository"
+	"github.com/INEFFABLE-games/authService/internal/service"
 	"github.com/INEFFABLE-games/authService/protocol"
-	"github.com/INEFFABLE-games/authService/repository"
-	"github.com/INEFFABLE-games/authService/service"
 	_ "github.com/lib/pq"
 	log "github.com/sirupsen/logrus"
 	"testing"

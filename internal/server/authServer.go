@@ -2,8 +2,8 @@ package server
 
 import (
 	"context"
+	"github.com/INEFFABLE-games/authService/internal/service"
 	proto "github.com/INEFFABLE-games/authService/protocol"
-	"github.com/INEFFABLE-games/authService/service"
 	log "github.com/sirupsen/logrus"
 )
 
