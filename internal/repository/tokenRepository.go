@@ -10,12 +10,12 @@ type TokenRepository struct {
 	db *sql.DB
 }
 
-// InsertRT insert new token in tokens table
-func (t *TokenRepository) InsertOrUpdate(ctx context.Context, RT string, userLogin string) error {
+// InsertOrUpdate insert new token in tokens table
+func (t *TokenRepository) InsertOrUpdate(ctx context.Context, RT string, userUid string) error {
 
 	_, err := t.db.ExecContext(ctx,
-		"insert into tokens(login,value) values($1,$2) ON CONFLICT (login) DO update set login=$1, value=$2",
-		userLogin,
+		"insert into tokens(uid,value) values($1,$2) ON CONFLICT (uid) DO update set uid=$1, value=$2",
+		userUid,
 		RT,
 	)
 

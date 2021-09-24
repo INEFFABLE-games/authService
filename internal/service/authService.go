@@ -24,7 +24,7 @@ func (a *AuthService) RefreshTokens(ctx context.Context, userLogin string) (stri
 		},
 	}
 
-	jwtTok, err := jwt.NewWithClaims(jwt.SigningMethodHS256, claims).SignedString([]byte("dog"))
+	jwtTok, err := jwt.NewWithClaims(jwt.SigningMethodHS256, claims).SignedString([]byte("operationToken"))
 	if err != nil {
 		return "", "", err
 	}
@@ -38,7 +38,7 @@ func (a *AuthService) RefreshTokens(ctx context.Context, userLogin string) (stri
 		},
 	}
 
-	rt, err := jwt.NewWithClaims(jwt.SigningMethodHS256, claims).SignedString([]byte("RefTokKey"))
+	rt, err := jwt.NewWithClaims(jwt.SigningMethodHS256, claims).SignedString([]byte("refreshToken"))
 
 	err = a.tokenRepo.InsertOrUpdate(ctx, rt, userLogin)
 

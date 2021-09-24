@@ -11,7 +11,7 @@ service AuthService{
 // refresh
 
 message RefreshRequest{
-  required string login = 1;
+  required string uid = 1;
 }
 
 message RefreshReply{

@@ -15,10 +15,10 @@ type AuthServer struct {
 
 func (a AuthServer) Refresh(ctx context.Context, request *proto.RefreshRequest) (*proto.RefreshReply, error) {
 
-	login := request.GetLogin()
+	uid := request.GetUid()
 
 	//----------------------------------------------------------------
-	newRT, newJWT, err := a.authService.RefreshTokens(ctx, login)
+	newRT, newJWT, err := a.authService.RefreshTokens(ctx, uid)
 	if err != nil {
 		log.WithFields(log.Fields{
 			"handler": "server",
