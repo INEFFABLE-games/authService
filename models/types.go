@@ -18,6 +18,6 @@ type Token struct {
 
 // CustomClaims struct for jwt token generation claim.
 type CustomClaims struct {
-	Login string
+	Uid string
 	jwt.StandardClaims
 }

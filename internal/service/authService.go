@@ -13,11 +13,11 @@ type AuthService struct {
 }
 
 // RefreshTokens refresh existing tokens for user
-func (a *AuthService) RefreshTokens(ctx context.Context, userLogin string) (string, string, error) {
+func (a *AuthService) RefreshTokens(ctx context.Context, userUid string) (string, string, error) {
 
 	//JWT claims
 	claims := models.CustomClaims{
-		Login: userLogin,
+		Uid: userUid,
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Minute * 1).Unix(),
 			Issuer:    "",
@@ -31,7 +31,7 @@ func (a *AuthService) RefreshTokens(ctx context.Context, userLogin string) (stri
 
 	//RT claims
 	claims = models.CustomClaims{
-		Login: userLogin,
+		Uid: userUid,
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Hour * 24).Unix(),
 			Issuer:    "",
@@ -40,7 +40,7 @@ func (a *AuthService) RefreshTokens(ctx context.Context, userLogin string) (stri
 
 	rt, err := jwt.NewWithClaims(jwt.SigningMethodHS256, claims).SignedString([]byte("refreshToken"))
 
-	err = a.tokenRepo.InsertOrUpdate(ctx, rt, userLogin)
+	err = a.tokenRepo.InsertOrUpdate(ctx, rt, userUid)
 
 	return rt, jwtTok, err
 }
