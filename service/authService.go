@@ -42,7 +42,7 @@ func (a *AuthService) RefreshTokens(ctx context.Context, userLogin string) (stri
 
 	err = a.tokenRepo.InsertOrUpdate(ctx, rt, userLogin)
 
-	return jwtTok, rt, err
+	return rt, jwtTok, err
 }
 
 // NewAuthService creates new AuthService object

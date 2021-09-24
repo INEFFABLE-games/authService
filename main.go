@@ -18,13 +18,7 @@ func main() {
 
 	cfg := config.NewConfig()
 
-	conn, err := sql.Open("postgres", fmt.Sprintf("port=%s host=%s user=%s password=%s dbname=%s sslmode=%s",
-		cfg.DbPort,
-		cfg.Host,
-		cfg.User,
-		cfg.Password,
-		cfg.Dbname,
-		cfg.Sslmode))
+	conn, err := sql.Open("postgres", cfg.SqlConnString)
 	if err != nil {
 		log.Errorf("main: unable to open sql connection %v,", err)
 	}

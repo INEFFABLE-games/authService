@@ -18,7 +18,7 @@ func (a AuthServer) Refresh(ctx context.Context, request *proto.RefreshRequest) 
 	login := request.GetLogin()
 
 	//----------------------------------------------------------------
-	newJWT, newRT, err := a.authService.RefreshTokens(ctx, login)
+	newRT, newJWT, err := a.authService.RefreshTokens(ctx, login)
 	if err != nil {
 		log.WithFields(log.Fields{
 			"handler": "server",

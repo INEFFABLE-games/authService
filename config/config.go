@@ -6,13 +6,8 @@ import (
 )
 
 type Config struct {
-	DbPort   string `env:"SQLPORT,required,notEmpty"`
-	GrpcPort string `env:"GRPCPORT,required,notEmpty"`
-	Host     string `env:"SQLHOST,required,notEmpty"`
-	User     string `env:"SQLUSER,required,notEmpty"`
-	Password string `env:"SQLPASSWORD,required,notEmpty"`
-	Dbname   string `env:"SQLDBNAME,required,notEmpty"`
-	Sslmode  string `env:"SQLSSLMODE,required,notEmpty"`
+	SqlConnString string `env:"SQL_URI,required,notEmpty"`
+	GrpcPort      string `env:"GRPC_PORT,required,notEmpty"`
 	//TokenKey string `env:"TOKENKEY,required,notEmpty"`
 }
 
